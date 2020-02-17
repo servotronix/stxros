@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find stx_control)/launch/abstract_start.launch">
+        <arg name="joint_names_yaml" value="$(find kuka_kr6_support)/config/joint_names_kr6r900sixx.yaml" />
+        <arg name="robot_movit_config_pkg" value="$(find puma_kr6_4)" />
+    </include>
+
+</launch>

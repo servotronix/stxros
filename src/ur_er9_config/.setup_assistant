@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ur_er9_support
+    relative_path: er9.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur_er9.srdf
+  CONFIG:
+    author_name: ami
+    author_email: ami.oren@servotronix.com
+    generated_timestamp: 1575284705

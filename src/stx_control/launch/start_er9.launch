@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find stx_control)/launch/abstract_start.launch">
+        <arg name="joint_names_yaml" value="$(find ur_er9_support)/config/joint_names.yaml" />
+        <arg name="robot_movit_config_pkg" value="$(find ur_er9_config)" />
+    </include>
+
+</launch>

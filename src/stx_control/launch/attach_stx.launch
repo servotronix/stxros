@@ -1,0 +1,11 @@
+<launch>
+
+
+<!--STX-->
+<!--    <node name="arm_controller" pkg="stx_control" type="stx_controller_NOT_RELEVENT.py" output="screen"/>-->
+<!--    <node name="stx_joint_state_publisher" pkg="stx_control" type="stx_joint_state_publisher_UDP.py" output="screen"/>-->
+
+<!--ROS-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+</launch>

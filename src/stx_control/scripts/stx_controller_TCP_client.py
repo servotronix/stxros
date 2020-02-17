@@ -19,6 +19,7 @@ from stxlib.tcp_move.basic_client import BasicClient
 from msg_state import MsgState
 
 MC_IP = '90.0.0.1'
+ROBOT_SPEED = 10
 TCP_IP = MC_IP
 TCP_PORT = 6001
 
@@ -109,9 +110,8 @@ def send_trajectory_to_server(goal_trajectory, srv):
     # print("just inserted msg number: {}".format(msg_id))
 
     # TO EDIT THE MOVING SPEED OF THE ROBOT CHANGE THE LAST PARAMETER FROM 10 TO DESIRED SPEED
-    speed = 10
     tn.grJoints(65, last_point_deg[0], last_point_deg[1], last_point_deg[2], last_point_deg[3], last_point_deg[4],
-                speed)
+                ROBOT_SPEED)
 
     if not motion_status.wait(timeout=I_TIME_OUT):
         rospy.logerr('TOOK TO LONG FOR MC TO RESPOND')
@@ -420,6 +420,8 @@ if __name__ == '__main__':
         MC_IP = rospy.get_param('~MC-IP')
         print('my IP is : {}'.format(MC_IP))
         print("=====================================")
+
+        ROBOT_SPEED = rospy.get_param('~ROBOT-SPEED')
 
         tn = BasicClient(MC_IP)
         tn.connect()

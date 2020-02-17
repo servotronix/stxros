@@ -13,4 +13,4 @@ class MsgState:
         self.immediate_ack_time = None
         self.success_callback = success
         self.fail_callback = fail
-        self.dead = False
+        self.dead = False            

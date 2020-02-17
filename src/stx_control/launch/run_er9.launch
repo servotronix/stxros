@@ -4,6 +4,8 @@
 
     <node name="arm_controller" pkg="stx_control" type="stx_controller_TCP_client.py" output="screen" launch-prefix="bash -c 'sleep 2; $0 $@' ">
         <param name="MC-IP" value="90.0.0.1" />
+        <param name="ROBOT-SPEED" value="15" />
+
     </node>
 
     <node name="stx_joint_state_publisher" pkg="stx_control" type="stx_joint_state_publisher_UDP.py" output="screen" launch-prefix="bash -c 'sleep 2; $0 $@' ">

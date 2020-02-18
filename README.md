@@ -14,8 +14,8 @@
 
 ## **Introduction**
 
- The STX-Controller will allow us to move and communicate with out robots 
- by writing or changing the command node 'moveit_node' or by moving the robot in the 'Rviz' simulation.
+ The STX-Controller will allow us to move and communicate with our robots 
+ by writing (or editing) the 'moveit_node' or by moving the robot in the 'Rviz' simulation.
  
  The communication is throw a TCP-Telnet/UDP protocols, in which the MC is the server and 
  the other nodes: 'arm_controller', 'stx_joint_state_publisher' and 
@@ -51,11 +51,11 @@
  
 ## **Starting the system**
 
-  - _If you haven’t already done so, make sure you’ve completed the steps in 'Installation and Setup'._
+  _If you haven’t already done so, make sure you’ve completed the steps in 'Installation and Setup'._
 
  In order to start the robot movement you need to execute the following in your terminal window:
  
- - Make sure to be in the workspace directory ('stxros')
+ - Make sure to be in the workspace directory. ('stxros')
 
  - Staring the ROS system with the 'er9' robot connected:
  

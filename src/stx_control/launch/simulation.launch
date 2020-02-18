@@ -4,6 +4,7 @@
 
     <node name="arm_controller" pkg="stx_control" type="stx_controller_simulation_client.py" output="screen" launch-prefix="bash -c 'sleep 2; $0 $@' " >
         <param name="MC-IP" value="127.0.0.1" />
+        <param name="ROBOT-SPEED" value="15" />
     </node>
 
     <node name="simulation_mc" pkg="stx_control" type="stx_contoller_simulation_server.py" output="log" />

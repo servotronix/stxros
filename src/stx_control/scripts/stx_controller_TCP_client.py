@@ -19,7 +19,7 @@ from stxlib.tcp_move.basic_client import BasicClient
 from msg_state import MsgState
 
 MC_IP = '90.0.0.1'
-ROBOT_SPEED = 10
+ROBOT_SPEED = 15
 TCP_IP = MC_IP
 TCP_PORT = 6001
 
@@ -418,10 +418,10 @@ if __name__ == '__main__':
 
         print("=====================================")
         MC_IP = rospy.get_param('~MC-IP')
-        print('my IP is : {}'.format(MC_IP))
-        print("=====================================")
-
+        print('Stx controller use ip : {}'.format(MC_IP))
         ROBOT_SPEED = rospy.get_param('~ROBOT-SPEED')
+        print('robot SPEED is : {}'.format(ROBOT_SPEED))
+        print("=====================================")
 
         tn = BasicClient(MC_IP)
         tn.connect()

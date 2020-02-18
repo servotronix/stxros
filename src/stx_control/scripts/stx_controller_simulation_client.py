@@ -19,6 +19,7 @@ from stxlib.tcp_move.basic_client import BasicClient
 from msg_state import MsgState
 
 MC_IP = '90.0.0.1'
+ROBOT_SPEED = 15
 TCP_IP = MC_IP
 TCP_PORT = 6001
 
@@ -117,7 +118,7 @@ def send_trajectory_to_server(goal_trajectory, srv):
     create_and_put_in_dictionary(msg_id, srv.set_succeeded, srv.set_aborted, False)
 
     # TO EDIT THE MOVING SPEED OF THE ROBOT CHANGE THE LAST PARAMETER FROM 20 TO DESIRED SPEED
-    tn.grJoints(65, last_point_deg[0], last_point_deg[1], last_point_deg[2], last_point_deg[3], last_point_deg[4], 20)
+    tn.grJoints(65, last_point_deg[0], last_point_deg[1], last_point_deg[2], last_point_deg[3], last_point_deg[4], ROBOT_SPEED)
     if not motion_status.wait(timeout=I_TIME_OUT):
         rospy.logerr('TOOK TOO LONG FOR MC TO RESPOND')
         my_mutex.acquire()
@@ -483,7 +484,9 @@ if __name__ == '__main__':
         rospy.loginfo('stx_controller_arm/gripper_Running_tcp...=================================================')
         print("=====================================")
         MC_IP = rospy.get_param('~MC-IP')
-        print('Arm controller use ip : {}'.format(MC_IP))
+        print('Stx controller use ip : {}'.format(MC_IP))
+        ROBOT_SPEED = rospy.get_param('~ROBOT-SPEED')
+        print('robot SPEED is : {}'.format(ROBOT_SPEED))
         print("=====================================")
 
         tn = BasicClient(MC_IP)

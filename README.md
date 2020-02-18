@@ -1,10 +1,10 @@
 # STX-Controller: ER9 
 
-### **Technical properties**
+### ***Technical properties***
 
-System requirements:
+ System requirements:
    
-   * Ubuntu 16.04.
+   * Ubuntu 16.04. 
    
    * ROS - kinetic.
    
@@ -21,7 +21,7 @@ System requirements:
  the other nodes: 'arm_controller', 'stx_joint_state_publisher' and 
  'moveit_node' are on the client side.
 
-##**Installation and Setup**
+## **Installation and Setup**
   
  In order of working with our system we need to install ROS - Kinetic, MoveIt! and TRAC-IK Kinematics Solver.
  
@@ -49,7 +49,7 @@ System requirements:
  
  
  
-##**Starting the system**
+## **Starting the system**
 
   - _If you haven’t already done so, make sure you’ve completed the steps in 'Installation and Setup'._
 
@@ -69,7 +69,7 @@ System requirements:
   **The system is up and ready to take commands!**
    
  
- ##**Operating the system**
+ ## **Operating the system**
  
  
    In order to plan a new robot movement the 'moveit node' needs to be edited.
@@ -85,7 +85,7 @@ System requirements:
    
    
    
- ##**Homing procedure**
+ ## **Homing procedure**
  
 If the robot has been turn off during movement execution or suffered from a different kind of unexpected
 error and now is not compatible with the 'Rviz' simulation we wil need to do manual 'Homing'.
@@ -101,8 +101,15 @@ error and now is not compatible with the 'Rviz' simulation we wil need to do man
 
 
     
-  ####_**Additional control tips:**_
+  #### _**Additional control tips:**_
+- _Speed and IP setup:_
 
+    Robot maximum movement speed and the MC-IP address are scalable and easy to change by editing the 'run_er9.launch' file.
+    
+     - To change robot maximum speed edit the 'value' which is followed by the 'ROBOT-SPEED' parameter. (default is 15)
+    
+    -  To change MC IP edit the 'value' which is followed by the 'MC-IP' parameter. (default is 90.0.0.1)
+    
 - _Gripper control:_
 
    In order to control gripper from 'Rviz', go to 'Planing Request' and

@@ -1,6 +1,6 @@
 # STX-Controller: ER9 
 
-###**Technical properties**
+###**Technical properties**###
 
 System requirements:
    
@@ -12,7 +12,7 @@ System requirements:
    
    * Kinematic solver: Track-IK.
 
-##**Introduction**
+##**Introduction**##
 
  The STX-Controller will allow us to move and communicate with out robots 
  by writing or changing the command node 'moveit_node' or by moving the robot in the 'Rviz' simulation.

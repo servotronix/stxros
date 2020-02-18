@@ -61,7 +61,7 @@ class StxControllerServerArm:
             rospy.loginfo('ACTION GOAL - arm_controller_tcp INVOKED!')
 
             if not motion_status.wait(timeout=I_TIME_OUT):
-                rospy.logerr('TOOK TO LONG FOR MC TO RESPOND')
+                rospy.logerr('TOOK TOO LONG FOR MC TO RESPOND')
                 self.server.set_aborted()
                 my_mutex.acquire()
                 obj = msg_state_dictionary[str(msg_id)]
@@ -75,7 +75,7 @@ class StxControllerServerArm:
 
                 # waiting for 60 seconds to finish moving the arm
                 if not motion_status.wait(timeout=MOVEMENT_TIMEOUT):
-                    rospy.logerr('TOOK TO LONG TO EXECUTE MOVEMENT - EXECUTION ABORTED ')
+                    rospy.logerr('TOOK TOO LONG TO EXECUTE MOVEMENT - EXECUTION ABORTED ')
                     self.server.set_aborted()
                     my_mutex.acquire()
                     obj = msg_state_dictionary[str(arm_msg_id)]
@@ -114,7 +114,7 @@ def send_trajectory_to_server(goal_trajectory, srv):
                 ROBOT_SPEED)
 
     if not motion_status.wait(timeout=I_TIME_OUT):
-        rospy.logerr('TOOK TO LONG FOR MC TO RESPOND')
+        rospy.logerr('TOOK TOO LONG FOR MC TO RESPOND')
         my_mutex.acquire()
         obj = msg_state_dictionary[str(msg_id)]
         obj.dead = True
@@ -167,7 +167,7 @@ class StxControllerServerGripper:
             rospy.loginfo('ACTION GOAL - gripper_controller_tcp INVOKED!')
 
             if not motion_status.wait(timeout=I_TIME_OUT):
-                rospy.logerr('TOOK TO LONG FOR MC TO RESPOND')
+                rospy.logerr('TOOK TOO LONG FOR MC TO RESPOND')
                 self.server.set_aborted()
                 my_mutex.acquire()
                 obj = msg_state_dictionary[str(msg_id)]
@@ -181,7 +181,7 @@ class StxControllerServerGripper:
 
                 # waiting for GRIPPER_TIMEOUT seconds to finish moving the Gripper
                 if not motion_status.wait(timeout=GRIPPER_TIMEOUT):
-                    rospy.logerr('TOOK TO LONG TO EXECUTE GRIPPER ACTION - EXECUTION ABORTED ')
+                    rospy.logerr('TOOK TOO LONG TO EXECUTE GRIPPER ACTION - EXECUTION ABORTED ')
                     self.server.set_aborted()
                     my_mutex.acquire()
                     obj = msg_state_dictionary[str(msg_gripper_id)]
@@ -259,7 +259,7 @@ def handle_service_command(req):
 
         tn.enableGroup(65)
         if not motion_status.wait(timeout=I_TIME_OUT):
-            rospy.loginfo('TOOK TO LONG FOR MC TO RESPOND ')
+            rospy.loginfo('TOOK TOO LONG FOR MC TO RESPOND ')
             my_mutex.acquire()
             obj = msg_state_dictionary[str(msg_id)]
             obj.dead = True
@@ -276,7 +276,7 @@ def handle_service_command(req):
 
         tn.disableGroup(65)
         if not motion_status.wait(timeout=I_TIME_OUT):
-            rospy.loginfo('TOOK TO LONG FOR MC TO RESPOND ')
+            rospy.loginfo('TOOK TOO LONG FOR MC TO RESPOND ')
             my_mutex.acquire()
             obj = msg_state_dictionary[str(msg_id)]
             obj.dead = True
